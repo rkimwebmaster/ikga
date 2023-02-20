@@ -13,7 +13,14 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/contact')]
 class ContactController extends AbstractController
 {
-    
+    #[Route('/', name: 'app_contact_index', methods: ['GET'])]
+    public function index(ContactRepository $contactRepository): Response
+    {
+        return $this->render('contact/index.html.twig', [
+            'contacts' => $contactRepository->findAll(),
+        ]);
+    }
+
     #[Route('/new', name: 'app_contact_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ContactRepository $contactRepository): Response
     {
@@ -32,6 +39,4 @@ class ContactController extends AbstractController
             'form' => $form,
         ]);
     }
-
-    
 }
