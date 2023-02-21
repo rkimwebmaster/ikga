@@ -4,15 +4,15 @@
 			<div class="row">
 				<div class="col-sm-6">
 					<div class="news-head pull-left">
-						<h2>Suivez nous et ecevez des mises à jour !</h2>
-						<div class="new-desc">Syez le premier d'avoir de nos nouvelles, reduction et promotions !</div>
+						<h2>Suivez nous et recevez des mises à jour !</h2>
+						<div class="new-desc">Soyez le premier d'avoir de nos nouvelles, reduction et promotions !</div>
 					</div>
 				</div>
 				<div class="col-sm-6">
 					<div class="news-form pull-right">
 						<form onsubmit="return validatemail();" method="post">
 							<div class="form-group required">
-								<input name="email" id="email" placeholder="Enter Your Email" class="form-control input-lg" required="" type="email">
+								<input name="email" id="email" placeholder="Entrer votre Email" class="form-control input-lg" required="" type="email">
 								<button type="submit" class="btn btn-default btn-lg">Souscrire</button>
 							</div>
 						</form>
@@ -24,31 +24,38 @@
 			<div class="col-md-3 footer-block">
 				<h6 class="footer-title ptb_20">Information</h6>
 				<ul>
-					<li><a href="#">Qui sommes-nous </a></li>
-					<li><a href="#">Delivery Information</a></li>
-					<li><a href="#">Privacy Policy</a></li>
-					<li><a href="#">Terms & Conditions</a></li>
+					<li><a href="{{url('app_qsn_index')}}">Qui sommes-nous </a></li>
+					<li><a href="{{url('app_produit_index')}}">Produits</a></li>
+					<li><a href="{{url('app_privacy_index')}}">Privacy Policy</a></li>
+					{# <li><a href="#">Terms & Conditions</a></li> #}
 					<li><a href="{{url('app_contact_index')}}">Contact Us</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-block">
 				<h6 class="footer-title ptb_20">Services</h6>
 				<ul>
-					<li><a href="#">Returns</a></li>
+					{% if services is defined and services|length > 0 %}
+					{% for service in services %}
+					<li><a href="#">{{service|title}}</a></li>
+					{% endfor %}
+					<li><a href="{{url('app_admin')}}">DashBoard</a></li>
+
+					{% else %}
+					<li><a href="#">Serbice 2</a></li>
+					<li><a href="#">Serbice 2</a></li>
 					<li><a href="#">Site Map</a></li>
-					<li><a href="#">Wish List</a></li>
-					<li><a href="#">My Account</a></li>
-					<li><a href="#">Order History</a></li>
+					<li><a href="#">Service 1</a></li>
+					{% endif %}
+
+					
 				</ul>
 			</div>
 			<div class="col-md-3 footer-block">
 				<h6 class="footer-title ptb_20">Extras</h6>
 				<ul>
-					<li><a href="#">Brands</a></li>
-					<li><a href="#">Gift Certificates</a></li>
-					<li><a href="#">Affiliates</a></li>
-					<li><a href="#">Specials</a></li>
-					<li><a href="#">Newsletter</a></li>
+					<li><a href="#">Recrutement</a></li>
+					<li><a href="#">Connexiion</a></li>
+					<li><a href="#">Creation de compte </a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-block">
@@ -65,11 +72,11 @@
 						</li>
 
 					{% else %}
-						<li>12345 Street name, California USA</li>
-						<li>(+024) 666 888</li>
-						<li>leonode.wc@gmail.com</li>
+						<li>114 Avenue Mundingwa, Lubumbashi - RDC </li>
+						<li>(+243) 822 0555 99 </li>
+						<li>info.client@ikga.net</li>
 						<li>
-							<a href="http://www.lionode.com/">www.lionode.com</a>
+							<a href="http://www.ikga.net/">www.ikga.com</a>
 						</li>
 					{% endif %}
 				</ul>

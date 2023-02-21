@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New QSN{% endblock %}
+
+{% block body %}
+    <h1>Create new QSN</h1>
+
+    {{ include('qsn/_form.html.twig') }}
+
+    <a href="{{ path('app_q_s_n_index') }}">back to list</a>
+{% endblock %}

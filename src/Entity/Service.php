@@ -6,7 +6,7 @@ use App\Repository\ServiceRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: ServiceRepository::class)]
-class Service
+class Service extends Page
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

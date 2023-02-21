@@ -21,14 +21,16 @@ class Categorie
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $photo = null;
-
     #[ORM\OneToMany(mappedBy: 'categorie', targetEntity: Produit::class)]
     private Collection $produits;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo295x320 = null;
+
+    public function __toString()
+    {
+        return strtoupper($this->designation);
+    }
 
     public function __construct()
     {

@@ -6,7 +6,7 @@ use App\Repository\QSNRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: QSNRepository::class)]
-class QSN
+class QSN extends Page
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

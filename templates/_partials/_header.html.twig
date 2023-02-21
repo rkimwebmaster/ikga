@@ -2,54 +2,60 @@
 	<div class="header-top">
 		<div class="container">
 			<div class="row">
-				<div class="col-xs-12 col-12">
+            <div class="col-xs-12 col-sm-4">
 					<div class="header-top-left">
 						<div class="contact">
             <marquee#>
-							<span class="hidden-xs hidden-sm hidden-md">Nous sommes ouvert chaque jours de 8 heures a 19 heures </span>
+							<span class="hidden-xs hidden-sm hidden-md">Ouvert chaque jours de 8 heures a 19 heures </span>
             </marquee>
 						</div>
 					</div>
 				</div>
-				{# <div class="col-xs-12 col-sm-8">
+				<div class="col-xs-12 col-sm-8">
 					<ul class="header-top-right text-right">
-						<li class="account">
-							<a href="login.html">My Account</a>
-						</li>
 						<li class="language dropdown">
-							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Language
+							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Comptes 
 								<span class="caret"></span>
 							</span>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
 								<li>
-									<a href="#">English</a>
+									<a href="{{url('app_login')}}">Connexion</a>
+								</li>
+								<li>
+									<a href="{{url('app_register')}}">Création de compte </a>
+								</li>
+							</ul>
+						</li>
+						{% if app.user %}
+						<li class="language dropdown">
+							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Bonjour {{app.user}}
+								<span class="caret"></span>
+							</span>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li>
+									<a href="{{url('app_logout')}}">Déconnexion</a>
+								</li>
+								<li>
+									<a href="{{url('app_user_show', {id: app.user.id})}}">Mon profile</a>
+								</li>
+							</ul>
+						</li>
+						{% endif %}
+						<li class="language dropdown">
+							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Langue
+								<span class="caret"></span>
+							</span>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li>
+									<a href="#">Swahili</a>
 								</li>
 								<li>
 									<a href="#">French</a>
 								</li>
-								<li>
-									<a href="#">German</a>
-								</li>
-							</ul>
-						</li>
-						<li class="currency dropdown">
-							<span class="dropdown-toggle" id="dropdownMenu12" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Currency
-								<span class="caret"></span>
-							</span>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu12">
-								<li>
-									<a href="#">€ Euro</a>
-								</li>
-								<li>
-									<a href="#">£ Pound Sterling</a>
-								</li>
-								<li>
-									<a href="#">$ US Dollar</a>
-								</li>
 							</ul>
 						</li>
 					</ul>
-				</div> #}
+				</div>
 			</div>
 		</div>
 	</div>
@@ -67,18 +73,18 @@
 					</div>
 				</div>
 				<div class="navbar-header col-xs-6 col-sm-4">
-					<a class="navbar-brand" href="index.html">
+					<a class="navbar-brand" href="{{url('app_accueil')}}">
 						<img alt="themini" src="{{asset('images/logo2.png')}}">
 					</a>
 				</div>
 				<div class="col-xs-6 col-sm-4 shopcart">
 					<div id="cart" class="btn-group btn-block mtb_40">
 						<button type="button" class="btn" data-target="#cart-dropdown" data-toggle="collapse" aria-expanded="true">
-							<span id="shippingcart">Shopping cart</span>
-							<span id="cart-total">items (0)</span>
+							<span id="shippingcart">IKGA</span>
+							<span id="cart-total">sarlu (0)</span>
 						</button>
 					</div>
-					<div id="cart-dropdown" class="cart-menu collapse">
+					{# <div id="cart-dropdown" class="cart-menu collapse">
 						<ul>
 							<li>
 								<table class="table table-striped">
@@ -155,7 +161,7 @@
 								</form>
 							</li>
 						</ul>
-					</div>
+					</div> #}
 				</div>
 			</div>
 			<nav class="navbar">
@@ -276,29 +282,26 @@
 								</li>
 							</ul>
 						</li>
+						{% if services is defined and services|length > 0 %}
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services
-							</a>
+
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services </a>
 							<ul class="dropdown-menu">
+								{% for service in services %}
 								<li>
-									<a href="cart_page.html">Cart</a>
+									<a href="cart_page.html">{{service|title}}</a>
 								</li>
-								<li>
-									<a href="checkout_page.html">Checkout</a>
-								</li>
-								<li>
-									<a href="product_detail_page.html">Product Detail Page</a>
-								</li>
-								<li>
-									<a href="single_blog.html">Single Post</a>
-								</li>
+								{% endfor %}
+
 							</ul>
+
+						</li>
+						{% endif %}
+						<li>
+							<a href="{{url('app_qsn_index')}}">Qui sommes-nous</a>
 						</li>
 						<li>
-							<a href="about.html">Qui sommes-nous</a>
-						</li>
-						<li>
-							<a href="contact_us.html">Contact us</a>
+							<a href="{{url('app_contact_index')}}">Contactez-nous</a>
 						</li>
 					</ul>
 				</div>

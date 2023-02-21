@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}QSN index{% endblock %}
+
+{% block body %}
+    <h1>QSN index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for q_s_n in q_s_ns %}
+            <tr>
+                <td>{{ q_s_n.id }}</td>
+                <td>
+                    <a href="{{ path('app_q_s_n_show', {'id': q_s_n.id}) }}">show</a>
+                    <a href="{{ path('app_q_s_n_edit', {'id': q_s_n.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_q_s_n_new') }}">Create new</a>
+{% endblock %}

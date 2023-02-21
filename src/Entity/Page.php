@@ -23,6 +23,14 @@ class Page
     #[ORM\Column(type: Types::TEXT)]
     private ?string $contenu = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $photo1170x500 = null;
+
+    public function __toString()
+    {
+        return $this->titre;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +68,18 @@ class Page
     public function setContenu(string $contenu): self
     {
         $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    public function getPhoto1170x500(): ?string
+    {
+        return $this->photo1170x500;
+    }
+
+    public function setPhoto1170x500(?string $photo1170x500): self
+    {
+        $this->photo1170x500 = $photo1170x500;
 
         return $this;
     }

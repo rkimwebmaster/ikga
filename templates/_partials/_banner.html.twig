@@ -1,10 +1,19 @@
 <div class="banner">
 	<div class="main-banner owl-carousel">
+		{% if parametre is defined and parametre|length > 0 %}
 		<div class="item">
 			<a href="#"><img src="images/main_banner1.jpg" alt="Main Banner" class="img-responsive"/></a>
 		</div>
 		<div class="item">
 			<a href="#"><img src="images/main_banner2.jpg" alt="Main Banner" class="img-responsive"/></a>
 		</div>
+		{% else %}
+		<div class="item">
+			<a href="#"><img src="images/main_banner1.jpg" alt="Main Banner" class="img-responsive"/></a>
+		</div>
+		<div class="item">
+			<a href="#"><img src="images/main_banner2.jpg" alt="Main Banner" class="img-responsive"/></a>
+		</div>
+		{% endif %}
 	</div>
 </div>
