@@ -32,6 +32,11 @@ class Produit
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $photo624x800Deuxieme = null;
 
+    public function __toString()
+    {
+        return $this->designation;
+    }
+
     public function getId(): ?int
     {
         return $this->id;

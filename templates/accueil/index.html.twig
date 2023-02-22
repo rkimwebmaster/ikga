@@ -24,7 +24,9 @@
 {% include "_partials/_header.html.twig" %}
 <!-- =====  HEADER END  ===== -->
 <!-- =====  BANNER STRAT  ===== -->
-	<div class="banner"> <div class="main-banner owl-carousel">
+	<div class="container">
+	<div class="banner">
+	 <div class="main-banner owl-carousel">
 		{% if parametre is defined %}
 			<div class="item">
 				{% if parametre.mainBanner1903x650Un is defined %}
@@ -37,11 +39,12 @@
 				{% if parametre.mainBanner1903x650Deux is defined %}
 					<a href="#"><img src="{{asset('images/main_banner2.jpg')}}" alt="Main Banner" class="img-responsive"/></a>
 				{% else %}
-					<a href="#"><img src="{{asset('images/main_banner1.jpg')}}" alt="Main Banner" class="img-responsive"/></a>
+					<a href="#"><img src="{{asset('images/main_banner2.jpg')}}" alt="Main Banner" class="img-responsive"/></a>
 				{% endif %}
 			</div>
 		{% endif %}
 	</div>
+</div>
 </div>
 <!-- =====  BANNER END  ===== -->
 <!-- =====  CONTAINER START  ===== -->
@@ -107,8 +110,8 @@
 									<div class="product-thumb">
 										<div class="image product-imageblock">
 											<a href="{{url('app_produit_show', {id: produit.id})}}">
-												<img data-name="product_image" src="{{asset('images/product/product9.jpg')}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-												<img src="{{asset('images/product/product9-1.jpg')}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
+												<img data-name="product_image" src="{{asset('uploads/images/parametre/'~ produit.photo624x800Premier)}}" alt="{{produit}}" title="{{produit}}" class="img-responsive">
+												<img src="{{asset('uploads/images/parametre/'~ produit.photo624x800Deuxieme)}}" alt="{{produit}}" title="{{produit}}" class="img-responsive">
 											</a>
 											<div class="button-group text-center">
 												<div class="wishlist">
@@ -157,11 +160,11 @@
 												</span>
 											</div>
 											<h6 data-name="product_name" class="product-name">
-												<a href="#" title="Casual Shirt With Ruffle Hem">New LCDScreen and HD Vide..</a>
+												<a href="#" title="Casual Shirt With Ruffle Hem">{{produit.designation}}..</a>
 											</h6>
 											<span class="price">
 												<span class="amount">
-													<span class="currencySymbol">$</span>70.00</span>
+													<span class="currencySymbol">$</span>{{produit.prix}}</span>
 											</span>
 										</div>
 									</div>
@@ -188,484 +191,10 @@
 		</div>
 		<div
 			class="col-sm-12 mtb_10">
-			<!-- =====  PRODUCT TAB  ===== -->
-			<div class="mt_60">
-				<div class="heading-part mb_10 ">
-					<h2 class="main_title">Meilleures ventes hebdomadaire</h2>
-				</div>
-				<div class="latest_pro box">
-					<div class="latest owl-carousel">
-                        {% if produits is defined and produits|length > 0 %}
-						{% for produit in produits %}
-						<div class="product-grid">
-							<div class="item">
-								<div class="product-thumb">
-									<div class="image product-imageblock">
-										<a href="{{url('app_produit_show', {id: produit.id})}}">
-											<img data-name="product_image" src="images/product/product2.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-											<img src="images/product/product2-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-										</a>
-										<div class="button-group text-center">
-											<div class="wishlist">
-												<a href="#">
-													<span>wishlist</span>
-												</a>
-											</div>
-											<div class="quickview">
-												<a href="#">
-													<span>Quick View</span>
-												</a>
-											</div>
-											<div class="compare">
-												<a href="#">
-													<span>Compare</span>
-												</a>
-											</div>
-											<div class="add-to-cart">
-												<a href="#">
-													<span>Add to cart</span>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="caption product-detail text-center">
-										<div class="rating">
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-x"></i>
-											</span>
-										</div>
-										<h6 data-name="product_name" class="product-name">
-											<a href="#" title="Casual Shirt With Ruffle Hem">New LCDScreen and HD Vide..</a>
-										</h6>
-										<span class="price">
-											<span class="amount">
-												<span class="currencySymbol">$</span>{{produit.prix}}</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						{% endfor %}
-                        {% else %}
-                        <div class="product-grid">
-							<div class="item">
-								<div class="product-thumb">
-									<div class="image product-imageblock">
-										<a href="#">
-											<img data-name="product_image" src="images/product/product2.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-											<img src="images/product/product2-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-										</a>
-										<div class="button-group text-center">
-											<div class="wishlist">
-												<a href="#">
-													<span>wishlist</span>
-												</a>
-											</div>
-											<div class="quickview">
-												<a href="#">
-													<span>Quick View</span>
-												</a>
-											</div>
-											<div class="compare">
-												<a href="#">
-													<span>Compare</span>
-												</a>
-											</div>
-											<div class="add-to-cart">
-												<a href="#">
-													<span>Add to cart</span>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="caption product-detail text-center">
-										<div class="rating">
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-x"></i>
-											</span>
-										</div>
-										<h6 data-name="product_name" class="product-name">
-											<a href="#" title="Casual Shirt With Ruffle Hem">New LCDScreen and HD Vide..</a>
-										</h6>
-										<span class="price">
-											<span class="amount">
-												<span class="currencySymbol">$</span>8888.00</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="product-grid">
-							<div class="item">
-								<div class="product-thumb">
-									<div class="image product-imageblock">
-										<a href="#">
-											<img data-name="product_image" src="images/product/product4.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-											<img src="images/product/product4-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-										</a>
-										<div class="button-group text-center">
-											<div class="wishlist">
-												<a href="#">
-													<span>wishlist</span>
-												</a>
-											</div>
-											<div class="quickview">
-												<a href="#">
-													<span>Quick View</span>
-												</a>
-											</div>
-											<div class="compare">
-												<a href="#">
-													<span>Compare</span>
-												</a>
-											</div>
-											<div class="add-to-cart">
-												<a href="#">
-													<span>Add to cart</span>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="caption product-detail text-center">
-										<div class="rating">
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-x"></i>
-											</span>
-										</div>
-										<h6 data-name="product_name" class="product-name">
-											<a href="#" title="Casual Shirt With Ruffle Hem">New LCDScreen and HD Vide..</a>
-										</h6>
-										<span class="price">
-											<span class="amount">
-												<span class="currencySymbol">$</span>70.00</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="product-grid">
-							<div class="item">
-								<div class="product-thumb">
-									<div class="image product-imageblock">
-										<a href="#">
-											<img data-name="product_image" src="images/product/product6.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-											<img src="images/product/product6-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-										</a>
-										<div class="button-group text-center">
-											<div class="wishlist">
-												<a href="#">
-													<span>wishlist</span>
-												</a>
-											</div>
-											<div class="quickview">
-												<a href="#">
-													<span>Quick View</span>
-												</a>
-											</div>
-											<div class="compare">
-												<a href="#">
-													<span>Compare</span>
-												</a>
-											</div>
-											<div class="add-to-cart">
-												<a href="#">
-													<span>Add to cart</span>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="caption product-detail text-center">
-										<div class="rating">
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-x"></i>
-											</span>
-										</div>
-										<h6 data-name="product_name" class="product-name">
-											<a href="#" title="Casual Shirt With Ruffle Hem">New LCDScreen and HD Vide..</a>
-										</h6>
-										<span class="price">
-											<span class="amount">
-												<span class="currencySymbol">$</span>70.00</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="product-grid">
-							<div class="item">
-								<div class="product-thumb">
-									<div class="image product-imageblock">
-										<a href="#">
-											<img data-name="product_image" src="images/product/product8.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-											<img src="images/product/product8-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-										</a>
-										<div class="button-group text-center">
-											<div class="wishlist">
-												<a href="#">
-													<span>wishlist</span>
-												</a>
-											</div>
-											<div class="quickview">
-												<a href="#">
-													<span>Quick View</span>
-												</a>
-											</div>
-											<div class="compare">
-												<a href="#">
-													<span>Compare</span>
-												</a>
-											</div>
-											<div class="add-to-cart">
-												<a href="#">
-													<span>Add to cart</span>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="caption product-detail text-center">
-										<div class="rating">
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-x"></i>
-											</span>
-										</div>
-										<h6 data-name="product_name" class="product-name">
-											<a href="#" title="Casual Shirt With Ruffle Hem">New LCDScreen and HD Vide..</a>
-										</h6>
-										<span class="price">
-											<span class="amount">
-												<span class="currencySymbol">$</span>70.00</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="product-grid">
-							<div class="item">
-								<div class="product-thumb">
-									<div class="image product-imageblock">
-										<a href="#">
-											<img data-name="product_image" src="{{asset('images/product/product10.jpg')}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-											<img src="{{asset('images/product/product10-1.jpg')}}" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-										</a>
-										<div class="button-group text-center">
-											<div class="wishlist">
-												<a href="#">
-													<span>wishlist</span>
-												</a>
-											</div>
-											<div class="quickview">
-												<a href="#">
-													<span>Quick View</span>
-												</a>
-											</div>
-											<div class="compare">
-												<a href="#">
-													<span>Compare</span>
-												</a>
-											</div>
-											<div class="add-to-cart">
-												<a href="#">
-													<span>Add to cart</span>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="caption product-detail text-center">
-										<div class="rating">
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-x"></i>
-											</span>
-										</div>
-										<h6 data-name="product_name" class="product-name">
-											<a href="#" title="Casual Shirt With Ruffle Hem">New LCDScreen and HD Vide..</a>
-										</h6>
-										<span class="price">
-											<span class="amount">
-												<span class="currencySymbol">$</span>70.00</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="product-grid">
-							<div class="item">
-								<div class="product-thumb">
-									<div class="image product-imageblock">
-										<a href="#">
-											<img data-name="product_image" src="images/product/product2.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-											<img src="images/product/product2-1.jpg" alt="iPod Classic" title="iPod Classic" class="img-responsive">
-										</a>
-										<div class="button-group text-center">
-											<div class="wishlist">
-												<a href="#">
-													<span>wishlist</span>
-												</a>
-											</div>
-											<div class="quickview">
-												<a href="#">
-													<span>Quick View</span>
-												</a>
-											</div>
-											<div class="compare">
-												<a href="#">
-													<span>Compare</span>
-												</a>
-											</div>
-											<div class="add-to-cart">
-												<a href="#">
-													<span>Add to cart</span>
-												</a>
-											</div>
-										</div>
-									</div>
-									<div class="caption product-detail text-center">
-										<div class="rating">
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-1x"></i>
-											</span>
-											<span class="fa fa-stack">
-												<i class="fa fa-star-o fa-stack-1x"></i>
-												<i class="fa fa-star fa-stack-x"></i>
-											</span>
-										</div>
-										<h6 data-name="product_name" class="product-name">
-											<a href="#" title="Casual Shirt With Ruffle Hem">New LCDScreen and HD Vide..</a>
-										</h6>
-										<span class="price">
-											<span class="amount">
-												<span class="currencySymbol">$</span>70.00</span>
-										</span>
-									</div>
-								</div>
-							</div>
-						</div>
-                        {% endif %}
-					</div>
-				</div>
-			</div>
-		</div>
-		<div
-			class="col-sm-12 mtb_10">
 			<!-- =====  Blog ===== -->
 			<div id="Blog" class="mt_50">
 				<div class="heading-part mb_10 ">
-					<h2 class="main_title">Dernières nouvelles
+					<h2 class="main_title">Nos activités
 					</h2>
 				</div>
 				<div class="blog-contain box">
@@ -674,28 +203,30 @@
 							<div class="box-holder">
 								<div class="thumb post-img">
 									<a href="#">
-										<img src="images/blog/blog_img_01.jpg" alt="themini">
+										<img src="{{asset('images/blog/blog_img_01.jpg')}}" alt="themini">
 									</a>
 									<div class="date-time text-center">
 										<div class="day">
 											11</div>
-										<div class="month">Aug</div>
+										<div class="month">Mars</div>
 									</div>
 									<div class="post-image-hover"></div>
 									<div class="post-info">
 										<h6 class="mb_10 text-uppercase">
-											<a href="single_blog.html">Fashions fade, style is eternal</a>
+											<a href="#">Couverture d'une fête de mariage </a>
 										</h6>
-										<p>Aliquam egestas pellentesque est. Etiam a orci Nulla id enim feugiat ligula ullamcorper scelerisque. Morbi eu luctus nisl.</p>
+										<p>
+										Nos services fêtes sont disponibles pour rendre des services des qualités grace à son personel aguerris et serviable. 										
+										</p>
 										<div class="view-blog">
 											<div class="write-comment pull-left">
-												<a href="single_blog.html">
+												<a href="#">
 													0 Comments</a>
 											</div>
 											<div class="read-more pull-right">
-												<a href="single_blog.html">
+												<a href="#">
 													<i class="fa fa-link"></i>
-													read more</a>
+													en savoir plus </a>
 											</div>
 										</div>
 									</div>
@@ -706,28 +237,31 @@
 							<div class="box-holder">
 								<div class="thumb post-img">
 									<a href="#">
-										<img src="images/blog/blog_img_02.jpg" alt="themini">
+										<img src="{{asset('images/blog/blog_img_02.jpg')}}" alt="themini">
 									</a>
 									<div class="date-time text-center">
 										<div class="day">
 											11</div>
-										<div class="month">Aug</div>
+										<div class="month">Juin</div>
 									</div>
 									<div class="post-image-hover"></div>
 									<div class="post-info">
 										<h6 class="mb_10 text-uppercase">
-											<a href="single_blog.html">Fashions fade, style is eternal</a>
+											<a href="#">Livraison des boissos sur la ville de Lubumbashi</a>
 										</h6>
-										<p>Aliquam egestas pellentesque est. Etiam a orci Nulla id enim feugiat ligula ullamcorper scelerisque. Morbi eu luctus nisl.</p>
+										<p>
+										Notre charroi automobile est apte à fournir des boissons produit de Bralima dans un temps reccord sur toute l'étendue de la ville 
+										de Lubumbashi. 
+										</p>
 										<div class="view-blog">
 											<div class="write-comment pull-left">
-												<a href="single_blog.html">
+												<a href="#">
 													0 Comments</a>
 											</div>
 											<div class="read-more pull-right">
-												<a href="single_blog.html">
+												<a href="#">
 													<i class="fa fa-link"></i>
-													read more</a>
+													en savoir plus </a>
 											</div>
 										</div>
 									</div>
@@ -743,23 +277,24 @@
 									<div class="date-time text-center">
 										<div class="day">
 											11</div>
-										<div class="month">Aug</div>
+										<div class="month">Fev.</div>
+										<div class="year">2023</div>
 									</div>
 									<div class="post-image-hover"></div>
 									<div class="post-info">
 										<h6 class="mb_10 text-uppercase">
-											<a href="single_blog.html">Fashions fade, style is eternal</a>
+											<a href="#">Fashions fade, style is eternal</a>
 										</h6>
 										<p>Aliquam egestas pellentesque est. Etiam a orci Nulla id enim feugiat ligula ullamcorper scelerisque. Morbi eu luctus nisl.</p>
 										<div class="view-blog">
 											<div class="write-comment pull-left">
-												<a href="single_blog.html">
+												<a href="#">
 													0 Comments</a>
 											</div>
 											<div class="read-more pull-right">
-												<a href="single_blog.html">
+												<a href="#">
 													<i class="fa fa-link"></i>
-													read more</a>
+													en savoir plus </a>
 											</div>
 										</div>
 									</div>
@@ -780,18 +315,18 @@
 									<div class="post-image-hover"></div>
 									<div class="post-info">
 										<h6 class="mb_10 text-uppercase">
-											<a href="single_blog.html">Fashions fade, style is eternal</a>
+											<a href="#">Fashions fade, style is eternal</a>
 										</h6>
 										<p>Aliquam egestas pellentesque est. Etiam a orci Nulla id enim feugiat ligula ullamcorper scelerisque. Morbi eu luctus nisl.</p>
 										<div class="view-blog">
 											<div class="write-comment pull-left">
-												<a href="single_blog.html">
+												<a href="#">
 													0 Comments</a>
 											</div>
 											<div class="read-more pull-right">
-												<a href="single_blog.html">
+												<a href="#">
 													<i class="fa fa-link"></i>
-													read more</a>
+													en savoir plus </a>
 											</div>
 										</div>
 									</div>
