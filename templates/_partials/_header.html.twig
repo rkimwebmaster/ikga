@@ -2,19 +2,20 @@
 	<div class="header-top">
 		<div class="container">
 			<div class="row">
-            <div class="col-xs-12 col-sm-4">
+				<div class="col-xs-12 col-sm-4">
 					<div class="header-top-left">
 						<div class="contact">
-            <marquee#>
-							<span class="hidden-xs hidden-sm hidden-md">Ouvert chaque jours de 8 heures a 19 heures </span>
-            </marquee>
+							<marquee#>
+								<span class="hidden-xs hidden-sm hidden-md">Ouvert chaque jours de 8 heures a 19 heures
+								</span>
+							</marquee>
 						</div>
 					</div>
 				</div>
 				<div class="col-xs-12 col-sm-8">
 					<ul class="header-top-right text-right">
 						<li class="language dropdown">
-							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Comptes 
+							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Comptes
 								<span class="caret"></span>
 							</span>
 							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -22,24 +23,26 @@
 									<a href="{{url('app_login')}}">Connexion</a>
 								</li>
 								<li>
-									<a href="{{url('app_register')}}">Création de compte </a>
+									<a href="{{url('app_register')}}">Création de compte
+									</a>
 								</li>
 							</ul>
 						</li>
 						{% if app.user %}
-						<li class="language dropdown">
-							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Bonjour {{app.user}}
-								<span class="caret"></span>
-							</span>
-							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-								<li>
-									<a href="{{url('app_logout')}}">Déconnexion</a>
-								</li>
-								<li>
-									<a href="{{url('app_user_show', {id: app.user.id})}}">Mon profile</a>
-								</li>
-							</ul>
-						</li>
+							<li class="language dropdown">
+								<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Bonjour
+									{{app.user}}
+									<span class="caret"></span>
+								</span>
+								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									<li>
+										<a href="{{url('app_logout')}}">Déconnexion</a>
+									</li>
+									<li>
+										<a href="{{url('app_user_show', {id: app.user.id})}}">Mon profile</a>
+									</li>
+								</ul>
+							</li>
 						{% endif %}
 						<li class="language dropdown">
 							<span class="dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" role="button">Langue
@@ -85,228 +88,209 @@
 						</button>
 					</div>
 					{# <div id="cart-dropdown" class="cart-menu collapse">
-						<ul>
-							<li>
-								<table class="table table-striped">
-									<tbody>
-										<tr>
-											<td class="text-center">
-												<a href="#"><img src="{{asset('images/product/70x84.jpg')}}" alt="iPod Classic" title="iPod Classic"></a>
-											</td>
-											<td class="text-left product-name">
-												<a href="#">MacBook Pro</a>
-												<span class="text-left price">$20.00</span>
-												<input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
-											</td>
-											<td class="text-center">
-												<a class="close-cart">
-													<i class="fa fa-times-circle"></i>
-												</a>
-											</td>
-										</tr>
-										<tr>
-											<td class="text-center">
-												<a href="#"><img src="{{asset('images/product/70x84.jpg')}}" alt="iPod Classic" title="iPod Classic"></a>
-											</td>
-											<td class="text-left product-name">
-												<a href="#">MacBook Pro</a>
-												<span class="text-left price">$20.00</span>
-												<input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
-											</td>
-											<td class="text-center">
-												<a class="close-cart">
-													<i class="fa fa-times-circle"></i>
-												</a>
-											</td>
-										</tr>
-									</tbody>
-								</table>
-							</li>
-							<li>
-								<table class="table">
-									<tbody>
-										<tr>
-											<td class="text-right">
-												<strong>Sub-Total</strong>
-											</td>
-											<td class="text-right">$2,100.00</td>
-										</tr>
-										<tr>
-											<td class="text-right">
-												<strong>Eco Tax (-2.00)</strong>
-											</td>
-											<td class="text-right">$2.00</td>
-										</tr>
-										<tr>
-											<td class="text-right">
-												<strong>VAT (20%)</strong>
-											</td>
-											<td class="text-right">$20.00</td>
-										</tr>
-										<tr>
-											<td class="text-right">
-												<strong>Total</strong>
-											</td>
-											<td class="text-right">$2,122.00</td>
-										</tr>
-									</tbody>
-								</table>
-							</li>
-							<li>
-								<form action="cart_page.html">
-									<input class="btn pull-left mt_10" value="View cart" type="submit">
-								</form>
-								<form action="checkout_page.html">
-									<input class="btn pull-right mt_10" value="Checkout" type="submit">
-								</form>
-							</li>
-						</ul>
-					</div> #}
+											<ul>
+												<li>
+													<table class="table table-striped">
+														<tbody>
+															<tr>
+																<td class="text-center">
+																	<a href="#"><img src="{{asset('images/product/70x84.jpg')}}" alt="iPod Classic" title="iPod Classic"></a>
+																</td>
+																<td class="text-left product-name">
+																	<a href="#">MacBook Pro</a>
+																	<span class="text-left price">$20.00</span>
+																	<input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
+																</td>
+																<td class="text-center">
+																	<a class="close-cart">
+																		<i class="fa fa-times-circle"></i>
+																	</a>
+																</td>
+															</tr>
+															<tr>
+																<td class="text-center">
+																	<a href="#"><img src="{{asset('images/product/70x84.jpg')}}" alt="iPod Classic" title="iPod Classic"></a>
+																</td>
+																<td class="text-left product-name">
+																	<a href="#">MacBook Pro</a>
+																	<span class="text-left price">$20.00</span>
+																	<input class="cart-qty" name="product_quantity" min="1" value="1" type="number">
+																</td>
+																<td class="text-center">
+																	<a class="close-cart">
+																		<i class="fa fa-times-circle"></i>
+																	</a>
+																</td>
+															</tr>
+														</tbody>
+													</table>
+												</li>
+												<li>
+													<table class="table">
+														<tbody>
+															<tr>
+																<td class="text-right">
+																	<strong>Sub-Total</strong>
+																</td>
+																<td class="text-right">$2,100.00</td>
+															</tr>
+															<tr>
+																<td class="text-right">
+																	<strong>Eco Tax (-2.00)</strong>
+																</td>
+																<td class="text-right">$2.00</td>
+															</tr>
+															<tr>
+																<td class="text-right">
+																	<strong>VAT (20%)</strong>
+																</td>
+																<td class="text-right">$20.00</td>
+															</tr>
+															<tr>
+																<td class="text-right">
+																	<strong>Total</strong>
+																</td>
+																<td class="text-right">$2,122.00</td>
+															</tr>
+														</tbody>
+													</table>
+												</li>
+												<li>
+													<form action="cart_page.html">
+														<input class="btn pull-left mt_10" value="View cart" type="submit">
+													</form>
+													<form action="checkout_page.html">
+														<input class="btn pull-right mt_10" value="Checkout" type="submit">
+													</form>
+												</li>
+											</ul>
+										</div> #}
 				</div>
 			</div>
 			<nav class="navbar">
-				<p>menu</p>
-				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
-					<span class="i-bar">
-						<i class="fa fa-bars"></i>
-					</span>
-				</button>
-				<div class="collapse navbar-collapse js-navbar-collapse">
-					<ul id="menu" class="nav navbar-nav">
-						<li>
-							<a href="index.html">Accueil</a>
-						</li>
-						<li class="dropdown mega-dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Produits
-							</a>
-							<ul class="dropdown-menu mega-dropdown-menu row">
-								<li class="col-md-3">
-									<ul>
-										<li class="dropdown-header">Women's</li>
-										<li>
-											<a href="#">Unique Features</a>
-										</li>
-										<li>
-											<a href="#">Image Responsive</a>
-										</li>
-										<li>
-											<a href="#">Auto Carousel</a>
-										</li>
-										<li>
-											<a href="#">Newsletter Form</a>
-										</li>
-										<li>
-											<a href="#">Four columns</a>
-										</li>
-										<li>
-											<a href="#">Four columns</a>
-										</li>
-										<li>
-											<a href="#">Good Typography</a>
-										</li>
-									</ul>
-								</li>
-								<li class="col-md-3">
-									<ul>
-										<li class="dropdown-header">Man's</li>
-										<li>
-											<a href="#">Unique Features</a>
-										</li>
-										<li>
-											<a href="#">Image Responsive</a>
-										</li>
-										<li>
-											<a href="#">Four columns</a>
-										</li>
-										<li>
-											<a href="#">Auto Carousel</a>
-										</li>
-										<li>
-											<a href="#">Newsletter Form</a>
-										</li>
-										<li>
-											<a href="#">Four columns</a>
-										</li>
-										<li>
-											<a href="#">Good Typography</a>
-										</li>
-									</ul>
-								</li>
-								<li class="col-md-3">
-									<ul>
-										<li class="dropdown-header">Children's</li>
-										<li>
-											<a href="#">Unique Features</a>
-										</li>
-										<li>
-											<a href="#">Four columns</a>
-										</li>
-										<li>
-											<a href="#">Image Responsive</a>
-										</li>
-										<li>
-											<a href="#">Auto Carousel</a>
-										</li>
-										<li>
-											<a href="#">Newsletter Form</a>
-										</li>
-										<li>
-											<a href="#">Four columns</a>
-										</li>
-										<li>
-											<a href="#">Good Typography</a>
-										</li>
-									</ul>
-								</li>
-								<li class="col-md-3">
-									<ul>
-										<li id="myCarousel" class="carousel slide" data-ride="carousel">
-											<div class="carousel-inner">
-												<div class="item active">
-													<a href="#"><img src="{{asset('images/menu-banner1.jpg')}}" class="img-responsive" alt="Banner1"></a>
-												</div>
-												<!-- End Item -->
-												<div class="item">
-													<a href="#"><img src="{{asset('images/menu-banner2.jpg')}}" class="img-responsive" alt="Banner1"></a>
-												</div>
-												<!-- End Item -->
-												<div class="item">
-													<a href="#"><img src="{{asset('images/menu-banner3.jpg')}}" class="img-responsive" alt="Banner1"></a>
-												</div>
-												<!-- End Item -->
-											</div>
-											<!-- End Carousel Inner -->
-										</li>
-										<!-- /.carousel -->
-									</ul>
-								</li>
-							</ul>
-						</li>
-						{% if services is defined and services|length > 0 %}
-						<li class="dropdown">
+					<p>menu</p>
+					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".js-navbar-collapse">
+						<span class="i-bar">
+							<i class="fa fa-bars"></i>
+						</span>
+					</button>
+					<div class="collapse navbar-collapse js-navbar-collapse">
+						<ul id="menu" class="nav navbar-nav">
+							<li>
+								<a href="{{url("app_accueil")}}">Accueil</a>
+							</li>
+							{# {% if is_granted('ROLE_ADMIN') %}
+						    <li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">DashBoard
+								</a>
+								<ul class="dropdown-menu">
+											<li>
+												<a href="#">Etat Achat</a>
+											</li>
+											<li>
+												<a href="#">Divers </a>
+											</li>
+								</ul>
+							</li>
+							{% endif %} #}
+							<li class="dropdown mega-dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Produits
+								</a>
+								<ul class="dropdown-menu mega-dropdown-menu row">
+									{% if categories is defined %}
+										{% for categorie in categories %}
+											<li class="col-md-3 ">
+												<ul>
+													<li class="dropdown-header">{{categorie|title }}</li>
+													{% for produit in categorie.produits %}
+														<li>
+															<a href="{{url('app_produit_show',{id: produit.id })}}">{{produit|title }}</a>
+														</li>
+													{% endfor %}
+													<li>
+														<a href="{{url('app_produit_index')}}">Tous les produits</a>
+													</li>
+												</ul>
+												<br/>
+											</li>
+										{% endfor %}
+									{% endif %}
 
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services </a>
-							<ul class="dropdown-menu">
-								{% for service in services %}
-								<li>
-									<a href="cart_page.html">{{service|title}}</a>
-								</li>
-								{% endfor %}
+									<li class="col-md-3">
+										<ul>
+											<li id="myCarousel" class="carousel slide" data-ride="carousel">
+												<div class="carousel-inner">
+													<div class="item active">
+														{% if entreprise.imageMenu1 is defined  %}
+														<a href="#"><img src="{{asset('uploads/images/produits/' ~ entreprise.imageMenu1)}}" alt="{{entreprise.imageMenu1}}" class="img-responsive" ></a>
+														{% else %}
+														<a href="#"><img src="{{asset('images/menu-banner1.jpg')}}" class="img-responsive" alt="Banner1"></a>
+														{% endif %}
 
-							</ul>
+													</div>
+													<!-- End Item -->
+													<div class="item">
+														{% if entreprise.imageMenu2 is defined %}
+														<a href="#"><img src="{{asset('uploads/images/produits/' ~ entreprise.imageMenu2)}}" alt="{{entreprise.imageMenu2}}" class="img-responsive" ></a>
+														{% else %}
+														<a href="#"><img src="{{asset('images/menu-banner2.jpg')}}" class="img-responsive" alt="Banner1"></a>
+														{% endif %}											
+														</div>
+													<!-- End Item -->
+													<div class="item">
+														{% if entreprise.imageMenu3 is defined %}
+														<a href="#"><img src="{{asset('uploads/images/produits/' ~ entreprise.imageMenu3)}}" alt="{{entreprise.imageMenu3}}" class="img-responsive" ></a>
+														{% else %}
+														<a href="#"><img src="{{asset('images/menu-banner3.jpg')}}" class="img-responsive" alt="Banner1"></a>
+														{% endif %}													
+														</div>
+													<!-- End Item -->
+												</div>
+												<!-- End Carousel Inner -->
+											</li>
+											<!-- /.carousel -->
+										</ul>
+									</li>
+								</ul>
+							</li>
+							{% if services is defined and services|length > 0 %}
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Services
+								</a>
+								<ul class="dropdown-menu">
+										{% for service in services %}
+											<li>
+												<a href="{#{url("app_service_show", {id: service.id })}#}">{{ service|title  }}</a>
+											</li>
+										{% endfor %}
+								</ul>
+							</li>
+							{% endif %}
+							<li>
+								<a href="{#{url("app_qsn")}#}">Qui sommes-nous?</a>
+							</li>
+							{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+							<li >
+								<a href="{{url("app_achat_index")}}">Historique des achats </a>
+							</li>
+							{% endif %}
 
-						</li>
-						{% endif %}
-						<li>
-							<a href="{{url('app_qsn_index')}}">Qui sommes-nous</a>
-						</li>
-						<li>
-							<a href="{{url('app_contact_index')}}">Contactez-nous</a>
-						</li>
-					</ul>
-				</div>
-				<!-- /.nav-collapse -->
-			</nav>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Nous contacter
+								</a>
+								<ul class="dropdown-menu">
+											<li>
+												<a href="{{url("app_contact_new")}}">Laisser un message</a>
+											</li>
+											<li>
+												<a href="https://api.whatsapp.com/send?phone=243824458059">Chat WhatsApp</a>
+											</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+					<!-- /.nav-collapse -->
+				</nav>
 		</div>
 	</div>
 </header>
