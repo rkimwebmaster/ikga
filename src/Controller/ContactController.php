@@ -21,6 +21,23 @@ class ContactController extends AbstractController
         ]);
     }
 
+
+    #[Route('/creationContact', name: 'app_creationContact', methods:['GET'])]
+    public function creationContact(Request $request, ContactRepository $contactRepository): Response
+    {
+        $nom=$request->get('nom');
+        $email=$request->get('email');
+        $sujet=$request->get('sujet');
+        $message=$request->get('message');
+        $telephone=$request->get('telephone');
+        $contact = new Contact($nom, $email, $telephone, $sujet, $message);
+        $contactRepository->save($contact, true);
+
+        // return $this->redirectToRoute('app_news_letter_index', [], Response::HTTP_SEE_OTHER);
+        $this->addFlash("success", "Merci pour votre inscription.");
+        return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
+    }
+
     #[Route('/new', name: 'app_contact_new', methods: ['GET', 'POST'])]
     public function new(Request $request, ContactRepository $contactRepository): Response
     {

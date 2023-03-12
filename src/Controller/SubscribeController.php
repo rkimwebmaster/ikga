@@ -14,6 +14,25 @@ use Symfony\Component\Routing\Annotation\Route;
 class SubscribeController extends AbstractController
 {
    
+    #[Route('/creationNewsLetter', name: 'app_creationNewsLetter', methods: 'GET')]
+    public function creationNewsLetter(Request $request, NewsLetterRepository $newsLetterRepository): Response
+    {
+
+        $email = $request->get('email');
+        // verifier doublon
+        $check = $newsLetterRepository->findBy(['email' => $email]);
+        if ($check) {
+            $this->addFlash("info", "Merci vous êtes déja dans le système.");
+            return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
+        }
+        $newsLetter = new Subscribe();
+        $newsLetter->setEmail($email);
+        $newsLetterRepository->save($newsLetter, true);
+        $this->addFlash("success", "Merci pour votre inscription à la newsletter.");
+        return $this->redirectToRoute('app_accueil', [], Response::HTTP_SEE_OTHER);
+        // return $this->redirect();
+    }
+
     #[Route('/new', name: 'app_subscribe_new', methods: ['GET', 'POST'])]
     public function new(Request $request, SubscribeRepository $subscribeRepository): Response
     {

@@ -25,10 +25,10 @@
 				<h6 class="footer-title ptb_20">Information</h6>
 				<ul>
 					<li><a href="{{url('app_qsn_index')}}">Qui sommes-nous </a></li>
-					<li><a href="{{url('app_produit_index')}}">Produits</a></li>
+					<li><a href="{{url('app_accueil')}}">Produits</a></li>
 					<li><a href="{{url('app_privacy_index')}}">Privacy Policy</a></li>
 					{# <li><a href="#">Terms & Conditions</a></li> #}
-					<li><a href="{{url('app_contact_index')}}">Contact Us</a></li>
+					<li><a href="{{url('app_contact_new')}}">Contactez-nous</a></li>
 				</ul>
 			</div>
 			<div class="col-md-3 footer-block">
@@ -36,7 +36,7 @@
 				<ul>
 					{% if services is defined and services|length > 0 %}
 					{% for service in services %}
-					<li><a href="#">{{service|title}}</a></li>
+					<li><a href="{{url('app_service_show', {id:service.id})}}">{{service|title}}</a></li>
 					{% endfor %}
 					<li><a href="{{url('app_admin')}}">DashBoard</a></li>
 
@@ -53,9 +53,13 @@
 			<div class="col-md-3 footer-block">
 				<h6 class="footer-title ptb_20">Extras</h6>
 				<ul>
-					<li><a href="#">Recrutement</a></li>
-					<li><a href="#">Connexiion</a></li>
-					<li><a href="#">Creation de compte </a></li>
+				{% if categories %}
+				{% for categorie in categories %}
+					<li><a href="#">{{categorie}}</a></li>
+				{% endfor %}
+					{% endif %}
+					{# <li><a href="#">Connexiion</a></li> #}
+					{# <li><a href="#">Creation de compte </a></li> #}
 				</ul>
 			</div>
 			<div class="col-md-3 footer-block">
@@ -68,15 +72,15 @@
 						<li>{{parametre.phoneNumber}}</li>
 						<li>{{parametre.email}}</li>
 						<li>
-							<a href="http://{{parametre.website}}/">{{parametre.website}}</a>
+							<a href="http://www.group-ikga.com/">www.group-ikga.com</a>
 						</li>
 
 					{% else %}
-						<li>114 Avenue Mundingwa, Lubumbashi - RDC </li>
-						<li>(+243) 822 0555 99 </li>
-						<li>info.client@ikga.net</li>
+						<li>9 Avenue Tanganyika,Katuba Lubumbashi - RDC </li>
+						<li>(+243) 818 249 649</li>
+						<li>info.client@group-ikga.com</li>
 						<li>
-							<a href="http://www.ikga.net/">www.ikga.com</a>
+							<a href="http://www.group-ikga.com/">www.group-ikga.com</a>
 						</li>
 					{% endif %}
 				</ul>
@@ -104,19 +108,19 @@
 					<div class="payment-icon text-right">
 						<ul>
 							<li>
-								<i class="fa fa-cc-paypal "></i>
+								{# <i class="fa fa-cc-paypal "></i> #}
 							</li>
 							<li>
-								<i class="fa fa-cc-visa"></i>
+								{# <i class="fa fa-cc-visa"></i> #}
 							</li>
 							<li>
-								<i class="fa fa-cc-discover"></i>
+								{# <i class="fa fa-cc-discover"></i> #}
 							</li>
 							<li>
-								<i class="fa fa-cc-mastercard"></i>
+								{# <i class="fa fa-cc-mastercard"></i> #}
 							</li>
 							<li>
-								<i class="fa fa-cc-amex"></i>
+								{# <i class="fa fa-cc-amex"></i> #}
 							</li>
 						</ul>
 					</div>

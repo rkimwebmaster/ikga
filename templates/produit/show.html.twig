@@ -3,40 +3,75 @@
 {% block title %}Produit{% endblock %}
 
 {% block body %}
-    <h1>Produit</h1>
 
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Designation</th>
-                <td>{{ produit.designation }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ produit.description }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ produit.prix }}</td>
-            </tr>
-            <tr>
-                <th>Photo624x800Premier</th>
-                <td>{{ produit.photo624x800Premier }}</td>
-            </tr>
-            <tr>
-                <th>Photo624x800Deuxieme</th>
-                <td>{{ produit.photo624x800Deuxieme }}</td>
-            </tr>
-        </tbody>
-    </table>
+<div class="row">
+<div class="col mtb_20">
+          <div class="row mt_10 ">
+            <div class="col-md-6">
+              <div><a class="thumbnails"> 
+              <img data-name="product_image" src="{{asset('uploads/images/parametre/' ~ produit.photo624x800Premier)}}" alt="" /></a></div>
+              <div id="product-thumbnail" class="owl-carousel">
+                {# <div class="item">
+                  <div class="image-additional"><a class="thumbnail" href="{{asset('images/product/product1.jpg')}}" data-fancybox="group1"> <img src="{{asset('images/product/product1.jpg')}}" alt="" /></a></div>
+                </div>
+                <div class="item">
+                  <div class="image-additional"><a class="thumbnail" href="{{asset('images/product/product2.jpg')}}" data-fancybox="group1"> <img src="{{asset('images/product/product2.jpg')}}" alt="" /></a></div>
+                </div>
+                <div class="item">
+                  <div class="image-additional"><a class="thumbnail" href="{{asset('images/product/product3.jpg')}}" data-fancybox="group1"> <img src="{{asset('images/product/product3.jpg')}}" alt="" /></a></div>
+                </div>
+                <div class="item">
+                  <div class="image-additional"><a class="thumbnail" href="{{asset('images/product/product4.jpg')}}" data-fancybox="group1"> <img src="{{asset('images/product/product4.jpg')}}" alt="" /></a></div>
+                </div>
+                <div class="item">
+                  <div class="image-additional"><a class="thumbnail" href="{{asset('images/product/product5.jpg')}}" data-fancybox="group1"> <img src="{{asset('images/product/product5.jpg')}}" alt="" /></a></div>
+                </div>
+                <div class="item">
+                  <div class="image-additional"><a class="thumbnail" href="{{asset('images/product/product6.jpg')}}" data-fancybox="group1"> <img src="{{asset('images/product/product6.jpg')}}" alt="" /></a></div>
+                </div>
+                <div class="item">
+                  <div class="image-additional"><a class="thumbnail" href="{{asset('images/product/product7.jpg')}}" data-fancybox="group1"> <img src="{{asset('images/product/product7.jpg')}}" alt="" /></a></div>
+                </div> #}
+              </div>
+            </div>
+            <div class="col-md-6 col-offset-6 prodetail caption product-thumb">
+              <h4 data-name="product_name" class="product-name"><a href="#" title="Casual Shirt With Ruffle Hem">
+              {{ produit.designation|title }}</a></h4>
+              <div class="rating">
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-1x"></i></span>
+                <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-1x"></i><i class="fa fa-star fa-stack-x"></i></span>
+              </div>
+              
+              <hr>
+              <hr>
+              <p class="product-desc mtb_30"> 
+              {{ produit.description | raw }}
+              </p>
+              <div id="product">
+                <div class="form-group">
+                  <div class="row">
+                    <div class="Sort-by col-md-4">
+                      {# <a href="{{url('cart_add',{id:produit.id})}}" id="select-by-size" class="btn btn-success">Acheter </a> #}
+                    </div>
+                    <div class="Color col-md-4">
+                        <a href="https://api.whatsapp.com/send?phone={{parametre.whatsappNumber}}" class="btn btn-success">Discuter  </a>
+                    </div>
+                    <div class="Color col-md-4">
+                        <a title="Tous les produits " href="{{url('app_accueil')}}" class="btn btn-success">Retour sur la page  </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            
+          </div>
 
-    <a href="{{ path('app_produit_index') }}">back to list</a>
+        </div>
 
-    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}">edit</a>
-
-    {{ include('produit/_delete_form.html.twig') }}
+</div>
 {% endblock %}
